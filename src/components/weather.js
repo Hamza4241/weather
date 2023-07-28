@@ -80,7 +80,7 @@ const Weather = () => {
                 try {
                   const imageUrl = `https://openweathermap.org/img/wn/${code}@2x.png`;
                   setImageUrl(imageUrl);
-                  // console.log("This is your URL: " + imageUrl);
+                  console.log("This is your URL: " + imageUrl);
                 } catch (error) {
                   console.log('Error fetching image:', error);
                 }
