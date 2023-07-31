@@ -131,6 +131,7 @@ const Cities = () => {
               <div className='image-btns sm:basis-3/5 flex flex-row justify-between items-center'>
                 <div className='image'>
                   <img className='h-5/6' src={`https://openweathermap.org/img/wn/${city.code}@2x.png`} alt="Weather Icon" />
+                  {/* I have made weather icon visible on first load */}
                 </div>
 
                 <div className='btn'>
