@@ -9,24 +9,20 @@ const Search = () => {
     const [data, setData] = useState({});
     const [showLocation, setShowLocation] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    // const [inputs, setInputs] = useState({});
 
     const options = { weekday: 'long' };
 
     var x = 8;
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=074d357f4482b7d0427f700aca9f3194`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid={API Key}`;
 
 
     const handleChange = (event) => {
-        // const name = event.target.name;
-        // const value = event.target.value;
-        // setInputs(values => ({...values, [name]: value}))
+
     }
 
     const handleSubmit = (event) => {
-        // event.preventDefault();
-        // console.log(inputs);
+
     }
 
 
@@ -54,9 +50,7 @@ const Search = () => {
             setDayCount(days);
 
             const myCode = response.data.list[0].weather[0].icon;
-            // const myTemp = Math.trunc( (response.data.list[0].main.temp-32)*5/9 );
-            // console.log("This is my code: " + myCode);
-            // console.log("This is my temp: " + myTemp);
+
             const fetchImage = async (myCode) => {
             try {
                 const imageUrl = `https://openweathermap.org/img/wn/${myCode}@2x.png`;
@@ -66,11 +60,7 @@ const Search = () => {
                 console.log('Error fetching image:', error);
             }
             };
-
-            // dispatch(increment({name: location, code: myCode, temp: myTemp}));
-            // setImageCode(myCode);
             fetchImage(myCode);
-
         }
         }).catch((error) => {
             alert("Please Enter correct city name");
