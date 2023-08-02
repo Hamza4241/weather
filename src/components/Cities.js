@@ -13,32 +13,22 @@ const Cities = () => {
     const [location, setLocation] = useState('');
     const [data, setData] = useState({});
     const [showLocation, setShowLocation] = useState('');
-    // const [imageCode, setImageCode] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=074d357f4482b7d0427f700aca9f3194`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid={API Key}`;
     const options = { weekday: 'long' };
-
-
-    // const cityList = cities.map((city) =>  
-    //   <li>{city.name}, {city.code}, {city.temp}</li>  
-    // ); 
 
 
 
     const getInfo = (myName, ID) => {
-      // setLocation(name);
-      // console.log("This is the name you are looking for: " + name);
-        axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${myName}&units=imperial&appid=074d357f4482b7d0427f700aca9f3194`).then((response) => {
+        axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${myName}&units=imperial&appid={API Key}`).then((response) => {
           if (response.status === 200){
             setData(response.data);
-            // console.log(response.data);
             setShowLocation(myName);
   
             const myCode = response.data.list[0].weather[0].icon;
             const myTemp = Math.trunc( (response.data.list[0].main.temp-32)*5/9 );
-            // console.log("This is my code: " + myCode);
-            // console.log("This is my temp: " + myTemp);
+
             const fetchImage = async (myCode) => {
               try {
                 const imageUrl = `https://openweathermap.org/img/wn/${myCode}@2x.png`;
@@ -89,9 +79,7 @@ const Cities = () => {
               };
     
               dispatch(increment({name: location, code: myCode, temp: myTemp}));
-              // setImageCode(myCode);
               fetchImage(myCode);
-    
             }
           }).catch((error) => {
               alert("Please Enter correct city name");
