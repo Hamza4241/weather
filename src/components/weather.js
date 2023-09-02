@@ -13,7 +13,7 @@ const Weather = () => {
     // var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const options = { weekday: 'long' };
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=074d357f4482b7d0427f700aca9f3194`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid={API Key}`;
     // const coodinateURL = `api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=074d357f4482b7d0427f700aca9f3194`;
 
     // const imageURL = `https://openweathermap.org/img/wn/${imageCode}d@2x.png`
@@ -36,7 +36,7 @@ const Weather = () => {
       // console.log("This is your location: " + location.latitude);
   
       // Make API call to OpenWeatherMap
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=074d357f4482b7d0427f700aca9f3194`)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid={API Key}`)
         .then(response => response.json())
         .then(data => {
           setData(data);
@@ -80,7 +80,7 @@ const Weather = () => {
                 try {
                   const imageUrl = `https://openweathermap.org/img/wn/${code}@2x.png`;
                   setImageUrl(imageUrl);
-                  // console.log("This is your URL: " + imageUrl);
+                  console.log("This is your URL: " + imageUrl);
                 } catch (error) {
                   console.log('Error fetching image:', error);
                 }
