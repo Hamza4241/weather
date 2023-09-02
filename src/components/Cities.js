@@ -115,7 +115,7 @@ const Cities = () => {
                   type="text"/>
           </div>
         
-          {cities.map((city, id) => (
+          {cities?.map((city, id) => (
             <div className='city-history bg-slate-700 rounded-2xl py-2 my-4 px-5 flex flex-col sm:flex-row sm:justify-between 
             h-fit sm:items-center hover:bg-slate-800 active:bg-slate-900 focus:bg-slate-900 focus:border-blue-500' key={id}>
               <div className='name-temp sm:basis-2/5 flex flex-row justify-between items-center'>
